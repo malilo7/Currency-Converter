@@ -1,0 +1,186 @@
+@charset "utf-8";
+
+/* --- Base Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(
+        135deg,
+        #0c0c0c 0%,
+        #1a1a2e 20%,
+        #16213e 40%,
+        #0f3460 60%,
+        #533a7d 80%,
+        #8b5a8c 90%,
+        #a0616a 100%
+    );
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+/* --- Main Container --- */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: white;
+}
+
+/* --- Headings --- */
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+p {
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+}
+
+/* --- Converter Form --- */
+.converter {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* better spacing */
+    position: relative;
+}
+
+.converter label {
+    font-weight: 500;
+}
+
+/* --- Inputs and Selects --- */
+.converter input {
+    width: 100%;
+    padding: 14px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.converter input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+.converter input:focus {
+    border-color: #fff;
+}
+
+/* --- Select Dropdowns --- */
+.converter select {
+    width: 100%;
+    padding: 14px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 10000;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: #000; /* Text color in dropdown visible */
+    background-color: #fff; /* Dropdown background */
+}
+
+/* Optional: custom arrow for select */
+.converter select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+/* --- Convert Button --- */
+#convertBtn {
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.25);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#convertBtn:hover {
+    background: rgba(255,255,255,0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* --- Result Table --- */
+.result-container {
+    overflow-x: auto;
+    margin-top: 10px;
+}
+#resultTable {
+    width: 100%;
+    border-collapse: separate; /* separate borders */
+    border-spacing: 0;
+    font-size: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+#resultTable th, #resultTable td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+#resultTable th:last-child,
+#resultTable td:last-child {
+    border-right: none;
+}
+#resultTable th {
+    background: rgba(255,255,255,0.2);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+#resultTable tbody tr:hover {
+    background: rgba(255,255,255,0.1);
+}
+#resultTable td {
+    font-weight: 500;
+    color: white;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+}
+
+/* --- Responsive --- */
+@media (max-width: 500px) {
+    .container {
+        padding: 30px 20px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    #convertBtn {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
